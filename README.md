@@ -1,3 +1,8 @@
+# REST API
+Mission Back End Intermediate 2
+
+## .env
+
 variabel pada `.env`:
 ```
 PORT=5000
@@ -8,6 +13,7 @@ MYSQL_PASSWORD=''
 MYSQL_DATABASE='chill_app'
 ```
 
+## Database
 Untuk membuat database, jalankan script `migration/create-database.sql` dalam MySQL.
 
 (Optional) Untuk mengisikan data dummy ke dalam database, jalankan script berikut dalam MySQL:
