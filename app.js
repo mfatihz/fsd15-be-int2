@@ -1,4 +1,5 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import * as uc from './controllers/userController.js'
 import * as sfc from './controllers/seriesFilmController.js'
 import * as gc from './controllers/genreController.js'
@@ -9,9 +10,7 @@ import * as oc from './controllers/orderController.js'
 import * as mlc from './controllers/myListController.js'
 import * as hgc from './controllers/hasGenreController.js'
 
-import dotenv from 'dotenv'
 dotenv.config();
-
 const app = express()
 
 app.use(express.json())
