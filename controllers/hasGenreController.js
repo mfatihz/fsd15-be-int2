@@ -1,31 +1,48 @@
-app.post("/films/:id/genres", async (req, res) => {
-    const { id } = req.params;
+import * as hgs from "../services/hasGenreService.js";
+
+export async function addGenreToSeriesFilm(req, res) {
+    const { id: filmId } = req.params;
     const { genreId } = req.body;
-    const genre = await addGenreToFilm(id, genreId)
-    res.send(genre)
-})
+    try {
+        const genre = await hgs.addGenreToSeriesFilm({ filmId, genreId })
+        res.status(201).json({ message: "Genre added successfully", genre });
+    } catch (err) {
+        const status = err.statusCode || 500;
+        res.status(status).json({ error: err.message });
+    }
+}
 
-app.get("/films/:id/genres", async (req, res) => {
-    const { id } = req.params;
-    const genre = await getFilmHasGenre(id)
+export async function getSeriesFilmHasGenre(req, res) {
+    const { id: filmId } = req.params;
+    const genre = await hgs.getSeriesFilmHasGenre({ filmId })
     res.send(genre)
-})
+}
 
-app.get("/genres/:id/films", async (req, res) => {
-    const { id } = req.params;
-    const genre = await getGenreHasSeriesFilm(id)
+export async function getGenreHasSeriesFilm(req, res) {
+    const { id: genreId } = req.params;
+    const genre = await hgs.getGenreHasSeriesFilm({ genreId })
     res.send(genre)
-})
+}
 
-app.put("/films/:id/genres/", async (req, res) => {
-    const { id } = req.params;
+export async function updateGenresToSeriesFilm(req, res) {
+    const { id: filmId } = req.params;
     const { genreIds } = req.body;
-    const genre = await updateGenresToFilm(id, genreIds)
-    res.send(genre)
-})
+    try {
+        const genre = await hgs.updateGenresToSeriesFilm({ filmId, genreIds })
+        res.status(200).json({ message: "List of Genres updated", genre });
+    } catch (err) {
+        const status = err.statusCode || 500;
+        res.status(status).json({ error: err.message });
+    }
+}
 
-app.delete("/films/:id/genres/:genreId", async (req, res) => {
-    const { id, genreId } = req.params;
-    const genre = await deleteGenreFromFilm(id, genreId)
-    res.send(genre)
-})
+export async function deleteGenreFromSeriesFilm(req, res) {
+    const { id: filmId, genreId } = req.params;
+    try {
+        const genre = await hgs.deleteGenreFromSeriesFilm({ filmId, genreId })
+        res.status(200).json({ message: "Genre deleted" });
+    } catch (err) {
+        const status = err.statusCode || 500;
+        res.status(status).json({ error: err.message });
+    }
+}
