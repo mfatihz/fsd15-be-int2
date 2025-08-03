@@ -1,0 +1,12 @@
+{
+    "username":"admin",
+    "email":"admin@chill.app",
+    "password":"admin",
+    "path_foto":""
+}
+{
+    "username":"guest",
+    "email":"guest@chill.app",
+    "password":"guest",
+    "path_foto":""
+}
