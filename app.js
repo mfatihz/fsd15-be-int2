@@ -8,7 +8,6 @@ import * as pmc from './controllers/paymentMethodController.js'
 import * as oc from './controllers/orderController.js'
 import * as mlc from './controllers/myListController.js'
 import * as hgc from './controllers/hasGenreController.js'
-//import { getFilmHasGenre, getGenreHasSeriesFilm, addGenreToFilm, deleteGenreFromFilm, updateGenresToFilm } from './services/memiliki-genre.js'
 
 import dotenv from 'dotenv'
 dotenv.config();
