@@ -1,6 +1,8 @@
 # REST API
 Mission Back End Intermediate 2
 
+Stack: `express`, `mysql2`, `dotenv`, `bcrypt`
+
 ## .env
 
 variabel pada `.env`:
